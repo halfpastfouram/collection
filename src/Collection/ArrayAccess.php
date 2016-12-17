@@ -6,9 +6,9 @@ use Halfpastfour\Collection\Collection;
 
 /**
  * Class ArrayAccess
- * @package Halfpastfour\PHPChartJS\Collection
+ * @package Halfpastfour\Collection\Collection
  */
-class ArrayAccess extends Collection implements \ArrayAccess, \Countable
+class ArrayAccess extends Collection implements \ArrayAccess, \Countable, ArrayAccessInterface
 {
 	/**
 	 * Check if the given offset exists in the set of data.
@@ -118,10 +118,6 @@ class ArrayAccess extends Collection implements \ArrayAccess, \Countable
 	 */
 	public function getIterator()
 	{
-		if( is_null( $this->iterator ) ) {
-			$this->iterator = new ArrayIterator( $this );
-		}
-
-		return $this->iterator;
+		return new ArrayIterator( $this );
 	}
 }
