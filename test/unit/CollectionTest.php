@@ -2,15 +2,17 @@
 
 namespace Test;
 
-use Halfpastfour\Collection\ArraySerializableInterface;
-use Halfpastfour\Collection\Collection;
-use Halfpastfour\Collection\CollectionInterface;
+use \Halfpastfour\Collection\ArraySerializableInterface;
+use \Halfpastfour\Collection\Collection;
+use \Halfpastfour\Collection\CollectionInterface;
 
 /**
  * Class MyCollection
  * @package Test
  */
-class MyCollection extends Collection {};
+class MyCollection extends Collection
+{
+}
 
 /**
  * Class CollectionTest
@@ -119,7 +121,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->collection->exchangeArray( self::DATA );
 
-		$iterator	= $this->collection->getIterator();
+		$iterator = $this->collection->getIterator();
 		$this->assertInstanceOf( \ArrayIterator::class, $iterator );
 
 		$values = array_values( self::DATA );
