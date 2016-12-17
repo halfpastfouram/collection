@@ -1,3 +1,8 @@
+[![TeamCity Build Status](http://halfpastfour.am:8111/app/rest/builds/buildType:(id:Collection_UnitTesting)/statusIcon)](http://halfpastfour.am:8111/viewType.html?buildTypeId=Collection_UnitTesting)
+[![Build Status](https://travis-ci.org/halfpastfouram/collection.svg?branch=master)](https://travis-ci.org/halfpastfouram/collection)
+[![Code Climate](https://codeclimate.com/github/halfpastfouram/collection/badges/gpa.svg)](https://codeclimate.com/github/halfpastfouram/collection)
+[![Test Coverage](https://codeclimate.com/github/halfpastfouram/collection/badges/coverage.svg)](https://codeclimate.com/github/halfpastfouram/collection/coverage)
+
 # Collection
 A flexible PHP Collection complete with custom Iterator.
 
