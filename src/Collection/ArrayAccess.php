@@ -19,8 +19,8 @@ class ArrayAccess extends Collection implements \ArrayAccess, \Countable, ArrayA
 	 */
 	public function offsetExists( $offset )
 	{
-		// Can not retrieve a key based on a value other than a string or integer
-		if( !is_string( $offset ) && !is_int( $offset ) ) {
+		// Can not retrieve a key based on a value other than a string, integer or boolean
+		if( !is_string( $offset ) && !is_int( $offset ) && !is_bool( $offset ) ) {
 			return false;
 		}
 
@@ -38,9 +38,9 @@ class ArrayAccess extends Collection implements \ArrayAccess, \Countable, ArrayA
 	{
 		if( $this->offsetExists( $offset ) ) {
 			return $this->data[ $offset ];
-		} else {
-			return false;
 		}
+
+		return null;
 	}
 
 	/**
