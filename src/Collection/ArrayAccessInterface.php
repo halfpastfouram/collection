@@ -1,27 +1,21 @@
 <?php
 
-namespace Halfpastfour\PHPChartJS\Collection;
+namespace Halfpastfour\Collection\Collection;
 
 /**
  * Interface ArrayAccessInterface
- * @package Halfpastfour\PHPChartJS\Collection
+ * @package Halfpastfour\Collection\Collection
  */
 interface ArrayAccessInterface
 {
 	/**
-	 * Should return the previous row from the collection. Returns false when no previous row is available.
-	 *
-	 * @return mixed
-	 */
-	public function previous();
-
-	/**
 	 * Should set the data for the collection and return the previous set of data.
 	 *
-	 * @param array $p_aData The data should be a multidimensional array.
-	 * @return array A bi-dimensional array
+	 * @param array $data
+	 *
+	 * @return array
 	 */
-	public function exchangeArray( array $p_aData );
+	public function exchangeArray( array $data );
 
 	/**
 	 * Should perform the php function usort on the dataset.
