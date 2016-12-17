@@ -22,8 +22,10 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * Array of data used for testing.
+	 *
+	 * @var array
 	 */
-	const DATA = [ 'foo' => 'bar', 2, 3, 4, 5.0, 10 => true ];
+	private $data = [ 'foo' => 'bar', 2, 3, 4, 5.0, 10 => true ];
 
 	/**
 	 * @var MyCollection
@@ -54,8 +56,8 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testArrayExchange()
 	{
-		$this->assertSame( [], $this->collection->exchangeArray( self::DATA ) );
-		$this->assertSame( self::DATA, $this->collection->exchangeArray( [] ) );
+		$this->assertSame( [], $this->collection->exchangeArray( $this->data ) );
+		$this->assertSame( $this->data, $this->collection->exchangeArray( [] ) );
 		$this->assertSame( [], $this->collection->getArrayCopy() );
 	}
 
@@ -64,8 +66,8 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testAppend()
 	{
-		$this->collection->exchangeArray( self::DATA );
-		$data = self::DATA;
+		$this->collection->exchangeArray( $this->data );
+		$data = $this->data;
 		array_push( $data, 'Bar' );
 
 		$this->assertInstanceOf( Collection::class, $this->collection->append( 'Bar' ) );
@@ -77,8 +79,8 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testPrepend()
 	{
-		$this->collection->exchangeArray( self::DATA );
-		$data = self::DATA;
+		$this->collection->exchangeArray( $this->data );
+		$data = $this->data;
 		array_unshift( $data, 'Foo' );
 
 		$this->assertInstanceOf( Collection::class, $this->collection->prepend( 'Foo' ) );
@@ -90,10 +92,10 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testTrim()
 	{
-		$this->collection->exchangeArray( self::DATA );
+		$this->collection->exchangeArray( $this->data );
 
 		// Trim left side
-		$data      = self::DATA;
+		$data      = $this->data;
 		$leftValue = array_shift( $data );
 		$this->assertSame( $leftValue, $this->collection->trimLeft() );
 		$this->assertSame( $data, $this->collection->getArrayCopy() );
@@ -119,13 +121,13 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testIterator()
 	{
-		$this->collection->exchangeArray( self::DATA );
+		$this->collection->exchangeArray( $this->data );
 
 		$iterator = $this->collection->getIterator();
 		$this->assertInstanceOf( \ArrayIterator::class, $iterator );
 
-		$values = array_values( self::DATA );
-		$keys   = array_keys( self::DATA );
+		$values = array_values( $this->data );
+		$keys   = array_keys( $this->data );
 		$index  = 0;
 		foreach( $this->collection as $key => $value ) {
 			$this->assertSame( $key, $keys[ $index ] );
