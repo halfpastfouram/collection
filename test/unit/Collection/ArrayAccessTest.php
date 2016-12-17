@@ -95,6 +95,9 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 		$this->assertTrue( $this->collection->offsetExists( 10 ) );
 		$this->assertTrue( $this->collection->offsetExists( 'foo' ) );
 		$this->assertFalse( $this->collection->offsetExists( 'nonExisting' ) );
+		$this->assertFalse( $this->collection->offsetExists( [ 1, 2, 3 ] ) );
+		$this->assertFalse( $this->collection->offsetExists( new \stdClass() ) );
+		$this->assertFalse( $this->collection->offsetExists( new \stdClass() ) );
 	}
 
 	/**
@@ -109,9 +112,9 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 			$this->assertSame( $value, $this->collection[ $key ] );
 		}
 
-		// Non existing offsets should return false
-		$this->assertFalse( $this->collection->offsetGet( 'nonExisting' ) );
-		$this->assertFalse( $this->collection['nonExisting'] );
+		// Non existing offsets should return null
+		$this->assertNull( $this->collection->offsetGet( 'nonExisting' ) );
+		$this->assertNull( $this->collection['nonExisting'] );
 	}
 
 	/**
