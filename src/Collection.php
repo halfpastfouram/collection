@@ -13,11 +13,6 @@ namespace Halfpastfour\Collection;
 abstract class Collection implements CollectionInterface, \IteratorAggregate, ArraySerializableInterface
 {
 	/**
-	 * @var \Iterator
-	 */
-	protected $iterator;
-
-	/**
 	 * The internal set of data.
 	 *
 	 * @var array
@@ -47,7 +42,7 @@ abstract class Collection implements CollectionInterface, \IteratorAggregate, Ar
 	 */
 	public function append( $value )
 	{
-		$this->data[] = $value;
+		array_push( $this->data, $value );
 
 		return $this;
 	}
@@ -57,7 +52,7 @@ abstract class Collection implements CollectionInterface, \IteratorAggregate, Ar
 	 *
 	 * @return mixed
 	 */
-	public function shift()
+	public function trimLeft()
 	{
 		return array_shift( $this->data );
 	}
@@ -67,7 +62,7 @@ abstract class Collection implements CollectionInterface, \IteratorAggregate, Ar
 	 *
 	 * @return mixed
 	 */
-	public function trimLeft()
+	public function trimRight()
 	{
 		return array_pop( $this->data );
 	}
@@ -106,22 +101,6 @@ abstract class Collection implements CollectionInterface, \IteratorAggregate, Ar
 	 */
 	public function getIterator()
 	{
-		if( !is_null( $this->iterator ) ) {
-			$this->iterator = new \ArrayIterator( $this );
-		}
-
-		return $this->iterator;
-	}
-
-	/**
-	 * Unset the pointer to an iterator.
-	 *
-	 * @return $this
-	 */
-	public function unsetIterator()
-	{
-		unset( $this->iterator );
-
-		return $this;
+		return new \ArrayIterator( $this->data );
 	}
 }
