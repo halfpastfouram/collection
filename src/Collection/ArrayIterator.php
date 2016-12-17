@@ -6,7 +6,7 @@ use Halfpastfour\Collection\Collection;
 
 /**
  * Class Iterator
- * @package Halfpastfour\PHPChartJS\Collection
+ * @package Halfpastfour\Collection\Collection
  */
 class ArrayIterator implements \Iterator, \Countable
 {
