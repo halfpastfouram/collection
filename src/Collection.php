@@ -4,11 +4,7 @@ namespace Halfpastfour\Collection;
 
 /**
  * Class Collection
- * @package Halfpastfour\PHPChartJS
- */
-/**
- * Class Collection
- * @package Halfpastfour\PHPChartJS
+ * @package Halfpastfour\Collection
  */
 abstract class Collection implements CollectionInterface, \IteratorAggregate, ArraySerializableInterface
 {
