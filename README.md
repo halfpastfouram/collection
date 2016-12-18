@@ -6,9 +6,7 @@
 [![Latest Stable Version](https://poser.pugx.org/halfpastfouram/collection/v/stable.png)](https://packagist.org/packages/halfpastfouram/collection)
 
 # Collection
-A flexible PHP Collection complete with custom Iterator.
-
-This library is still in active development and will be updated until it is deemed completed.
+A flexible PHP Collection complete with custom Iterator, part of the `halfpastfouram` code library.
 
 ## What can you do with a collection?
 A collection is a tool you can use to have a certain level of control over the data you store inside it. Where you could use an array in most situations a collection provides a more flexible way to deal with your data.
@@ -56,7 +54,7 @@ var_dump( $iterator->calculateKeyMap() );
 ## Installation
 
 ### Using composer
-    $ composer require halfpastfouram/collection dev-master
+    $ composer require halfpastfouram/collection
 
 ### Development
 This project uses composer, which should be installed on your system. Most
