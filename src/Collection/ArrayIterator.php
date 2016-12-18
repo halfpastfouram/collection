@@ -86,7 +86,7 @@ class ArrayIterator implements \Iterator, \Countable
 	{
 		$this->calculateKeyMap();
 		if( !array_key_exists( $cursor, $this->keyMap ) ) {
-			return false;
+			return null;
 		}
 
 		return $this->keyMap[ $cursor ];
@@ -135,7 +135,7 @@ class ArrayIterator implements \Iterator, \Countable
 	 */
 	public function valid()
 	{
-		return !!$this->key();
+		return !is_null( $this->key() );
 	}
 
 	/**
