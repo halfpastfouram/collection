@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.org/halfpastfouram/collection.svg?branch=master)](https://travis-ci.org/halfpastfouram/collection)
 [![Code Climate](https://codeclimate.com/github/halfpastfouram/collection/badges/gpa.svg)](https://codeclimate.com/github/halfpastfouram/collection)
 [![Test Coverage](https://codeclimate.com/github/halfpastfouram/collection/badges/coverage.svg)](https://codeclimate.com/github/halfpastfouram/collection/coverage)
+[![Total Downloads](https://poser.pugx.org/halfpastfouram/collection/d/total.png)](https://packagist.org/packages/halfpastfouram/collection)
+[![Latest Stable Version](https://poser.pugx.org/halfpastfouram/collection/v/stable.png)](https://packagist.org/packages/halfpastfouram/collection)
 
 # Collection
 A flexible PHP Collection complete with custom Iterator.
