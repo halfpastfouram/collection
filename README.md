@@ -5,8 +5,8 @@
 [![Total Downloads](https://poser.pugx.org/halfpastfouram/collection/d/total.png)](https://packagist.org/packages/halfpastfouram/collection)
 [![Latest Stable Version](https://poser.pugx.org/halfpastfouram/collection/v/stable.png)](https://packagist.org/packages/halfpastfouram/collection)
 
-# Collection
-A flexible PHP Collection complete with custom Iterator, part of the `halfpastfouram` code library.
+# Mutable
+A flexible PHP Mutable complete with custom Iterator, part of the `halfpastfouram` code library.
 
 ## What can you do with a collection?
 A collection is a tool you can use to have a certain level of control over the data you store inside it. Where you could use an array in most situations a collection provides a more flexible way to deal with your data.
@@ -14,13 +14,12 @@ A collection is a tool you can use to have a certain level of control over the d
 It is particularly useful to extend this class if you need to perform actions on a list of items or objects when they are added, removed, replaced or otherwise modified.
 
 ## Control over collections
-You can traverse all objects that extend the `Collection` class. To give you more flexibility, all collections in this project extends the `Collection\ArrayAccess` class which provides direct access as if you were talking to an array. This class also provides an iterator that can be used in loops or even manually.
+You can traverse all collection types. To give you more flexibility, use the `ArrayAccess` class which provides direct array access as if you were talking to an array. This class also provides an iterator that can be used in loops or even manually.
 
 ### Array access example
 
 ````php
-// Assuming MyCollection extends Halfpastfouram\Collection\ArrayAccess
-$collection = new MyCollection();
+$collection = new Collection\ArrayAccess( [ 0, 1, 2, 3 ] );
 $collection[] = 0;
 $collection[5] = 12;
 ````
@@ -33,11 +32,10 @@ foreach( $collection as $key => $value ) {
 }
 ````
 
-### Manual traversing
+### Manual traversing (ArrayAccess only)
 
 ````php
-$collection = new MyCollection();
-$iterator = $collection->getIterator();
+$iterator   = $collection->getIterator();
 
 // Jump forward to next position
 $iterator->next();

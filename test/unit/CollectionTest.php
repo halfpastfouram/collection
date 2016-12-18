@@ -3,8 +3,8 @@
 namespace Test;
 
 use \Halfpastfour\Collection\ArraySerializableInterface;
-use \Halfpastfour\Collection\Collection;
-use \Halfpastfour\Collection\CollectionInterface;
+use Halfpastfour\Collection\Collection;
+use \Halfpastfour\Collection\Collection\MutableInterface;
 
 /**
  * Class CollectionTest
@@ -38,7 +38,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	{
 		$collection = new Collection();
 		$this->assertInstanceOf( Collection::class, $collection );
-		$this->assertInstanceOf( CollectionInterface::class, $collection );
+		$this->assertInstanceOf( MutableInterface::class, $collection );
 		$this->assertInstanceOf( \IteratorAggregate::class, $collection );
 		$this->assertInstanceOf( ArraySerializableInterface::class, $collection );
 	}

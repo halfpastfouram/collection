@@ -3,7 +3,7 @@
 namespace Test\Collection;
 
 use Halfpastfour\Collection\Collection\ArrayAccess;
-use Halfpastfour\Collection\Collection\ArrayIterator;
+use Halfpastfour\Collection\Iterator\ArrayAccessIterator;
 
 /**
  * Class ArrayIteratorTest
@@ -19,7 +19,7 @@ class ArrayIteratorTest extends \PHPUnit_Framework_TestCase
 	private $data = [ 'foo' => 'bar', 2, 3, 4, 5.0, 10 => true ];
 
 	/**
-	 * @var ArrayIterator
+	 * @var ArrayAccessIterator
 	 */
 	private $iterator;
 
@@ -31,7 +31,7 @@ class ArrayIteratorTest extends \PHPUnit_Framework_TestCase
 		$collection		= new ArrayAccess();
 		$collection->exchangeArray( $this->data );
 
-		$this->iterator = new ArrayIterator( $collection );
+		$this->iterator = new ArrayAccessIterator( $collection );
 	}
 
 	/**

@@ -1,17 +1,17 @@
 <?php
 
-namespace Halfpastfour\Collection\Collection;
+namespace Halfpastfour\Collection\Iterator;
 
-use Halfpastfour\Collection\Collection;
+use Halfpastfour\Collection\Collection\ArrayAccess;
 
 /**
  * Class Iterator
  * @package Halfpastfour\Collection\Collection
  */
-class ArrayIterator implements \Iterator, \Countable
+class ArrayAccessIterator implements \Iterator, \Countable
 {
 	/**
-	 * @var Collection
+	 * @var ArrayAccess
 	 */
 	protected $collection;
 
@@ -25,11 +25,11 @@ class ArrayIterator implements \Iterator, \Countable
 	/**
 	 * Iterator constructor.
 	 *
-	 * @param Collection\ArrayAccess $collection
+	 * @param ArrayAccess $collection
 	 *
 	 * @internal param array $data
 	 */
-	public function __construct( Collection\ArrayAccess $collection )
+	public function __construct( ArrayAccess $collection )
 	{
 		$this->collection = $collection;
 	}

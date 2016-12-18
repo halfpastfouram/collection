@@ -4,9 +4,10 @@ namespace Test\Collection;
 
 use Halfpastfour\Collection\ArraySerializableInterface;
 use Halfpastfour\Collection\Collection;
-use Halfpastfour\Collection\CollectionInterface;
 use Halfpastfour\Collection\Collection\ArrayAccess;
 use Halfpastfour\Collection\Collection\ArrayAccessInterface;
+use Halfpastfour\Collection\Collection\MutableInterface;
+use Halfpastfour\Collection\Iterator\ArrayAccessIterator;
 
 /**
  * @see http://stackoverflow.com/questions/4102777/php-random-shuffle-array-maintaining-key-value
@@ -61,7 +62,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	public function testImplementation()
 	{
 		$this->assertInstanceOf( Collection::class, $this->collection );
-		$this->assertInstanceOf( CollectionInterface::class, $this->collection );
+		$this->assertInstanceOf( MutableInterface::class, $this->collection );
 		$this->assertInstanceOf( ArrayAccessInterface::class, $this->collection );
 		$this->assertInstanceOf( \IteratorAggregate::class, $this->collection );
 		$this->assertInstanceOf( ArraySerializableInterface::class, $this->collection );
@@ -205,7 +206,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	public function testGetIterator()
 	{
 		$iterator	= $this->collection->getIterator();
-		$this->assertInstanceOf( Collection\ArrayIterator::class, $iterator );
+		$this->assertInstanceOf( ArrayAccessIterator::class, $iterator );
 		$this->assertNotSame( $iterator, $this->collection->getIterator() );
 	}
 }

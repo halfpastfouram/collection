@@ -3,6 +3,7 @@
 namespace Halfpastfour\Collection\Collection;
 
 use Halfpastfour\Collection\Collection;
+use Halfpastfour\Collection\Iterator\ArrayAccessIterator;
 
 /**
  * Class ArrayAccess
@@ -114,10 +115,10 @@ class ArrayAccess extends Collection implements \ArrayAccess, \Countable, ArrayA
 	}
 
 	/**
-	 * @return ArrayIterator
+	 * @return ArrayAccessIterator
 	 */
 	public function getIterator()
 	{
-		return new ArrayIterator( $this );
+		return new ArrayAccessIterator( $this );
 	}
 }

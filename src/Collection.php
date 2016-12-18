@@ -2,31 +2,15 @@
 
 namespace Halfpastfour\Collection;
 
+use Halfpastfour\Collection\Collection\Immutable;
+use Halfpastfour\Collection\Collection\MutableInterface;
+
 /**
  * Class Collection
  * @package Halfpastfour\Collection
  */
-class Collection implements CollectionInterface, \IteratorAggregate, ArraySerializableInterface
+class Collection extends Immutable implements MutableInterface, \IteratorAggregate, ArraySerializableInterface
 {
-	/**
-	 * The internal set of data.
-	 *
-	 * @var array
-	 */
-	protected $data = [];
-
-	/**
-	 * Collection constructor.
-	 *
-	 * @param array|null $data
-	 */
-	public function __construct( array $data = null )
-	{
-		if( !is_null( $data ) ) {
-			$this->data = $data;
-		}
-	}
-
 	/**
 	 * Add a value to the beginning of the set of data. This will change existing keys.
 	 *
@@ -73,16 +57,6 @@ class Collection implements CollectionInterface, \IteratorAggregate, ArraySerial
 	public function trimRight()
 	{
 		return array_pop( $this->data );
-	}
-
-	/**
-	 * Should return an array containing all values.
-	 *
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		return $this->data;
 	}
 
 	/**
