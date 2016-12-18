@@ -9,14 +9,6 @@ use Halfpastfour\Collection\Collection\ArrayAccess;
 use Halfpastfour\Collection\Collection\ArrayAccessInterface;
 
 /**
- * Class MyCollection
- * @package Test
- */
-class MyArrayAccessCollection extends ArrayAccess
-{
-}
-
-/**
  * @see http://stackoverflow.com/questions/4102777/php-random-shuffle-array-maintaining-key-value
  *
  * @param array $list
@@ -51,7 +43,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	private $data = [ 'foo' => 'bar', 2, 3, 4, 5.0, 10 => true ];
 
 	/**
-	 * @var MyArrayAccessCollection
+	 * @var ArrayAccess
 	 */
 	private $collection;
 
@@ -60,7 +52,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function setUp()
 	{
-		$this->collection = new MyArrayAccessCollection();
+		$this->collection = new ArrayAccess();
 	}
 
 	/**

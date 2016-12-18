@@ -6,7 +6,7 @@ namespace Halfpastfour\Collection;
  * Class Collection
  * @package Halfpastfour\Collection
  */
-abstract class Collection implements CollectionInterface, \IteratorAggregate, ArraySerializableInterface
+class Collection implements CollectionInterface, \IteratorAggregate, ArraySerializableInterface
 {
 	/**
 	 * The internal set of data.

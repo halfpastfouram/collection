@@ -7,14 +7,6 @@ use \Halfpastfour\Collection\Collection;
 use \Halfpastfour\Collection\CollectionInterface;
 
 /**
- * Class MyCollection
- * @package Test
- */
-class MyCollection extends Collection
-{
-}
-
-/**
  * Class CollectionTest
  * @package Test
  */
@@ -32,10 +24,10 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testConstructor()
 	{
-		$collection = new MyCollection();
+		$collection = new Collection();
 		$this->assertSame( [], $collection->getArrayCopy() );
 
-		$collection = new MyCollection( $this->data );
+		$collection = new Collection( $this->data );
 		$this->assertSame( $this->data, $collection->getArrayCopy() );
 	}
 
@@ -44,7 +36,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testImplementation()
 	{
-		$collection = new MyCollection();
+		$collection = new Collection();
 		$this->assertInstanceOf( Collection::class, $collection );
 		$this->assertInstanceOf( CollectionInterface::class, $collection );
 		$this->assertInstanceOf( \IteratorAggregate::class, $collection );
@@ -56,7 +48,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testArrayExchange()
 	{
-		$collection = new MyCollection();
+		$collection = new Collection();
 		$this->assertSame( [], $collection->exchangeArray( $this->data ) );
 		$this->assertSame( $this->data, $collection->exchangeArray( [] ) );
 		$this->assertSame( [], $collection->getArrayCopy() );
@@ -67,7 +59,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testAppend()
 	{
-		$collection = new MyCollection( $this->data );
+		$collection = new Collection( $this->data );
 		$data       = $this->data;
 		array_push( $data, 'Bar' );
 
@@ -80,7 +72,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testPrepend()
 	{
-		$collection = new MyCollection( $this->data );
+		$collection = new Collection( $this->data );
 		$data       = $this->data;
 		array_unshift( $data, 'Foo' );
 
@@ -93,7 +85,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testTrim()
 	{
-		$collection = new MyCollection( $this->data );
+		$collection = new Collection( $this->data );
 
 		// Trim left side
 		$data      = $this->data;
@@ -122,7 +114,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testIterator()
 	{
-		$collection = new MyCollection( $this->data );
+		$collection = new Collection( $this->data );
 		$iterator   = $collection->getIterator();
 		$this->assertInstanceOf( \ArrayIterator::class, $iterator );
 
