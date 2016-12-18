@@ -16,6 +16,18 @@ abstract class Collection implements CollectionInterface, \IteratorAggregate, Ar
 	protected $data = [];
 
 	/**
+	 * Collection constructor.
+	 *
+	 * @param array|null $data
+	 */
+	public function __construct( array $data = null )
+	{
+		if( !is_null( $data ) ) {
+			$this->data = $data;
+		}
+	}
+
+	/**
 	 * Add a value to the beginning of the set of data. This will change existing keys.
 	 *
 	 * @param mixed $value The value to prepend.

@@ -28,16 +28,15 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	private $data = [ 'foo' => 'bar', 2, 3, 4, 5.0, 10 => true ];
 
 	/**
-	 * @var MyCollection
+	 * Test the constructor.
 	 */
-	private $collection;
-
-	/**
-	 * Create a new instance of a collection.
-	 */
-	public function setUp()
+	public function testConstructor()
 	{
-		$this->collection = new MyCollection();
+		$collection = new MyCollection();
+		$this->assertSame( [], $collection->getArrayCopy() );
+
+		$collection = new MyCollection( $this->data );
+		$this->assertSame( $this->data, $collection->getArrayCopy() );
 	}
 
 	/**
@@ -45,10 +44,11 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testImplementation()
 	{
-		$this->assertInstanceOf( Collection::class, $this->collection );
-		$this->assertInstanceOf( CollectionInterface::class, $this->collection );
-		$this->assertInstanceOf( \IteratorAggregate::class, $this->collection );
-		$this->assertInstanceOf( ArraySerializableInterface::class, $this->collection );
+		$collection = new MyCollection();
+		$this->assertInstanceOf( Collection::class, $collection );
+		$this->assertInstanceOf( CollectionInterface::class, $collection );
+		$this->assertInstanceOf( \IteratorAggregate::class, $collection );
+		$this->assertInstanceOf( ArraySerializableInterface::class, $collection );
 	}
 
 	/**
@@ -56,9 +56,10 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testArrayExchange()
 	{
-		$this->assertSame( [], $this->collection->exchangeArray( $this->data ) );
-		$this->assertSame( $this->data, $this->collection->exchangeArray( [] ) );
-		$this->assertSame( [], $this->collection->getArrayCopy() );
+		$collection = new MyCollection();
+		$this->assertSame( [], $collection->exchangeArray( $this->data ) );
+		$this->assertSame( $this->data, $collection->exchangeArray( [] ) );
+		$this->assertSame( [], $collection->getArrayCopy() );
 	}
 
 	/**
@@ -66,12 +67,12 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testAppend()
 	{
-		$this->collection->exchangeArray( $this->data );
-		$data = $this->data;
+		$collection = new MyCollection( $this->data );
+		$data       = $this->data;
 		array_push( $data, 'Bar' );
 
-		$this->assertInstanceOf( Collection::class, $this->collection->append( 'Bar' ) );
-		$this->assertSame( $data, $this->collection->getArrayCopy() );
+		$this->assertInstanceOf( Collection::class, $collection->append( 'Bar' ) );
+		$this->assertSame( $data, $collection->getArrayCopy() );
 	}
 
 	/**
@@ -79,12 +80,12 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testPrepend()
 	{
-		$this->collection->exchangeArray( $this->data );
-		$data = $this->data;
+		$collection = new MyCollection( $this->data );
+		$data       = $this->data;
 		array_unshift( $data, 'Foo' );
 
-		$this->assertInstanceOf( Collection::class, $this->collection->prepend( 'Foo' ) );
-		$this->assertSame( $data, $this->collection->getArrayCopy() );
+		$this->assertInstanceOf( Collection::class, $collection->prepend( 'Foo' ) );
+		$this->assertSame( $data, $collection->getArrayCopy() );
 	}
 
 	/**
@@ -92,28 +93,28 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testTrim()
 	{
-		$this->collection->exchangeArray( $this->data );
+		$collection = new MyCollection( $this->data );
 
 		// Trim left side
 		$data      = $this->data;
 		$leftValue = array_shift( $data );
-		$this->assertSame( $leftValue, $this->collection->trimLeft() );
-		$this->assertSame( $data, $this->collection->getArrayCopy() );
+		$this->assertSame( $leftValue, $collection->trimLeft() );
+		$this->assertSame( $data, $collection->getArrayCopy() );
 
 		// ... and again
 		$leftValue = array_shift( $data );
-		$this->assertSame( $leftValue, $this->collection->trimLeft() );
-		$this->assertSame( $data, $this->collection->getArrayCopy() );
+		$this->assertSame( $leftValue, $collection->trimLeft() );
+		$this->assertSame( $data, $collection->getArrayCopy() );
 
 		// Trim right side
 		$rightValue = array_pop( $data );
-		$this->assertSame( $rightValue, $this->collection->trimRight() );
-		$this->assertSame( $data, $this->collection->getArrayCopy() );
+		$this->assertSame( $rightValue, $collection->trimRight() );
+		$this->assertSame( $data, $collection->getArrayCopy() );
 
 		// ... and again
 		$rightValue = array_pop( $data );
-		$this->assertSame( $rightValue, $this->collection->trimRight() );
-		$this->assertSame( $data, $this->collection->getArrayCopy() );
+		$this->assertSame( $rightValue, $collection->trimRight() );
+		$this->assertSame( $data, $collection->getArrayCopy() );
 	}
 
 	/**
@@ -121,15 +122,14 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testIterator()
 	{
-		$this->collection->exchangeArray( $this->data );
-
-		$iterator = $this->collection->getIterator();
+		$collection = new MyCollection( $this->data );
+		$iterator   = $collection->getIterator();
 		$this->assertInstanceOf( \ArrayIterator::class, $iterator );
 
 		$values = array_values( $this->data );
 		$keys   = array_keys( $this->data );
 		$index  = 0;
-		foreach( $this->collection as $key => $value ) {
+		foreach( $collection as $key => $value ) {
 			$this->assertSame( $key, $keys[ $index ] );
 			$this->assertSame( $value, $values[ $index ] );
 			$index++;
