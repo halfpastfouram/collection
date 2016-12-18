@@ -9,7 +9,7 @@ A flexible PHP Collection complete with custom Iterator.
 This library is still in active development and will be updated until it is deemed completed.
 
 ## What can you do with a collection?
-A collections is a tool you can use to have a certain level of control over the data you store inside it. Where you could use an array in most situations a collection provides a more flexible way to deal with your data.
+A collection is a tool you can use to have a certain level of control over the data you store inside it. Where you could use an array in most situations a collection provides a more flexible way to deal with your data.
 
 It is particularly useful to extend this class if you need to perform actions on a list of items or objects when they are added, removed, replaced or otherwise modified.
 
