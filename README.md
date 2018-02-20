@@ -2,7 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/halfpastfouram/collection/badges/gpa.svg)](https://codeclimate.com/github/halfpastfouram/collection)
 [![Test Coverage](https://codeclimate.com/github/halfpastfouram/collection/badges/coverage.svg)](https://codeclimate.com/github/halfpastfouram/collection/coverage)
 [![Downloads](https://img.shields.io/packagist/dt/halfpastfouram/collection.svg)](https://packagist.org/packages/halfpastfouram/collection)
-[![Latest Stable Version](https://img.shields.io/packagist/v/symfony/symfony.svg)](https://packagist.org/packages/halfpastfouram/collection)
+[![Latest Stable Version](https://img.shields.io/packagist/v/halfpastfouram/collection.svg)](https://packagist.org/packages/halfpastfouram/collection)
 
 # Mutable
 A flexible PHP Mutable complete with custom Iterator, part of the `halfpastfouram` code library.
