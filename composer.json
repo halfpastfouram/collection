@@ -8,7 +8,7 @@
   "homepage": "http://github.com/halfpastfouram/collection",
   "type": "package",
   "version": "v1.0.0",
-  "license": "AGPL 3.0",
+  "license": "AGPL-3.0-or-later",
   "authors": [
     {
       "name": "Bob Kruithof"
