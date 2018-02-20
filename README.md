@@ -1,9 +1,8 @@
-[![TeamCity Build Status](http://halfpastfour.am:8111/app/rest/builds/buildType:(id:Collection_UnitTesting)/statusIcon)](http://halfpastfour.am:8111/viewType.html?buildTypeId=Collection_UnitTesting)
 [![Build Status](https://travis-ci.org/halfpastfouram/collection.svg?branch=master)](https://travis-ci.org/halfpastfouram/collection)
 [![Code Climate](https://codeclimate.com/github/halfpastfouram/collection/badges/gpa.svg)](https://codeclimate.com/github/halfpastfouram/collection)
 [![Test Coverage](https://codeclimate.com/github/halfpastfouram/collection/badges/coverage.svg)](https://codeclimate.com/github/halfpastfouram/collection/coverage)
-[![Total Downloads](https://poser.pugx.org/halfpastfouram/collection/d/total.png)](https://packagist.org/packages/halfpastfouram/collection)
-[![Latest Stable Version](https://poser.pugx.org/halfpastfouram/collection/v/stable.png)](https://packagist.org/packages/halfpastfouram/collection)
+[![Downloads](https://img.shields.io/packagist/dt/halfpastfouram/collection.svg)](https://packagist.org/packages/halfpastfouram/collection)
+[![Latest Stable Version](https://img.shields.io/packagist/v/symfony/symfony.svg)](https://packagist.org/packages/halfpastfouram/collection)
 
 # Mutable
 A flexible PHP Mutable complete with custom Iterator, part of the `halfpastfouram` code library.
